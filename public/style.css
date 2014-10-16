@@ -1,0 +1,48 @@
+html{
+    height:100%;
+}
+body{
+    font-family:century gothic;
+    line-height: 1.5em;
+    position:relative;
+    min-height:100%;
+}
+.nav a {
+    color: black;
+    font-family: century gothic;
+    font-weight: bold;
+    font-size: 14pt;
+}
+.nav a.active {
+    color: white;
+    background-color: #EA5D0E;
+    border-radius: 5px;
+}
+.footer a{
+    color:white;
+}
+
+.apos-refreshable{
+    position:relative;
+    min-height:100%;
+}
+.footer{
+    background-color:#333;
+    padding-top:50px;
+    padding-bottom:50px;
+    color:white;
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+.main-content{
+    padding-top:100px;
+    padding-bottom:250px;
+}
+#share-buttons img {
+    width: 45px;
+    padding: 5px;
+    border: 0;
+    box-shadow: 0;
+    display: inline;
+}
