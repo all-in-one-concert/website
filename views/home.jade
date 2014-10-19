@@ -1,0 +1,81 @@
+extends ../node_modules/neutronjs/page.jade
+
+append head
+    title All in one Concert
+    link(href='/public/css/bootstrap.css', rel='stylesheet', type='text/css')
+    link(href="/public/css/font-awesome.min.css", rel="stylesheet", type="text/css")
+    link(href="/public/style.css", rel="stylesheet", type="text/css")
+    script(type='text/javascript', src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(type='text/javascript', src='http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js')
+
+
+append body
+    Nav(ref="nav")
+    .main-content
+        div(style={'background-color':'#333'})
+            .container
+                .row
+                    .col-md-12
+                        Carousel(style={height:"380px",overflow:"hidden"})
+                            each i in [1,2,3]
+                                CarouselItem
+                                    img(src='http://eventlighting.ch/slideshow/'+i+'.jpg', width="100%")
+                                    .carousel-caption
+                                        p(draggable='true') Silvesterparty, Genf, 12.03.2012
+
+        //FileManager
+        //Tester
+        .container(onClick=this.doIt)
+            .jumbotron()
+                h1 Bereit für Ihren Event!
+                | Die All in one Concert GmbH Veranstaltungstechnik ist ein Dienstleistungsunternehmen im Bereich der Eventtechnik. Durch den besten Einsatz unserer modernsten Veranstaltungstechnik, sorgen wir für die gewünschte Beachtung ihres Events.
+                br
+                |Wir sind ein kompetenter und zuverlässiger Partner für die Eventtechnik unserer Zeit. Durch das dynamische und erfolgsorientierte Team der All in one Concert GmbH profitieren unsere Kunden von einem hervorragendem Know-how und dem persönlichen Kontakt, der Ihnen kostengünstige Lösungen bietet.
+        .container(style={'padding-bottom':'50px'})
+            .row
+                .col-md-6
+                    h2 Unsere Dienstleistungen
+                    ul
+                        li Verkauf/ Vermietung von Veranstaltungstechnik (Licht, Ton, Pyro und Video)
+                        li Betreuung der Technik an Ihrem Event
+                        li Planung Ihrer Veranstaltung
+                        li Support und Einbau von Festinstallationen
+                        li Service und Reparaturen (z.B GLP, Martin, ETC, ...)
+                    a.btn.btn-danger.pull-right(href='/dienstleistungen',onClick=function(){this.refs.nav.dienstleistungen()}.bind(this)) Mehr
+                    Component("page"=this,"data"={type:"Text",html:"Hello World!"},ref="equipment")
+                    a.btn.btn-danger.pull-right(href='# ') Mehr
+                .col-md-6
+                    Component("page"=this,"data"={type:"Text",html:"Hello World!"},ref="blog")
+                    a.btn.btn-danger(href='# ') Mehr
+        Footer
+main.
+    var Nav = require("./nav.jade");
+    var Footer = require("./footer.jade");
+    var Component = require("neutronjs").components.Component;
+    var FileManager = require("neutronjs").components.FileManager;
+    var AdminPanel = require("neutronjs").components.AdminPanel;
+
+    var Carousel = require("react-bootstrap/Carousel");
+    var CarouselItem = require("react-bootstrap/CarouselItem");
+    var async = require("async");
+
+
+    exports.saveComponents = function(names,cb){
+        var self = this;
+        var result = {};
+        async.each(names,function(name,cb){
+            self.refs[name].save(function(data){
+                result[name] = data;
+                cb();
+            });
+        },function(){
+            cb(result);
+        });
+    }
+
+
+    exports.save = function(cb){
+        this.saveComponents(["dienstleistungen","equipment","blog"],function(data){
+            cb(data);
+        });
+    }

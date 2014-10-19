@@ -1,0 +1,26 @@
+extends ../node_modules/neutronjs/page.jade
+
+append head
+    title All in one Concert
+    link(href='/public/css/bootstrap.css', rel='stylesheet', type='text/css')
+    link(href="/public/css/font-awesome.min.css", rel="stylesheet", type="text/css")
+    link(href="/public/style.css", rel="stylesheet", type="text/css")
+    script(type='text/javascript', src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(type='text/javascript', src='http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js')
+
+
+append body
+    Nav(ref="nav")
+    .main-content
+        .container
+            h2 Unsere Dienstleistungen
+            ul
+                li Verkauf/ Vermietung von Veranstaltungstechnik (Licht, Ton, Pyro und Video)
+                li Betreuung der Technik an Ihrem Event
+                li Planung Ihrer Veranstaltung
+                li Support und Einbau von Festinstallationen
+                li Service und Reparaturen (z.B GLP, Martin, ETC, ...)
+        Footer
+main.
+    var Nav = require("./nav.jade");
+    var Footer = require("./footer.jade");

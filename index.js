@@ -10,20 +10,55 @@ mongo.connect("mongodb://cloudstudios.ch:27017/websitify",function(err,db){
 
     var website = new neutronjs.Website("/neutron/");
     console.log("building...");
-    website.build(__dirname,,{
-        "Home":"./pages/home.jade"
+
+    var structure = [
+        {
+            url:"/",
+            name:"Start",
+            template:"./views/home.jade"
+        },{
+            url:"/dienstleistungen",
+            name:"Dienstleistungen",
+            template:"./views/dienstleistungen.jade"
+        },{
+            url:"/equipment",
+            name:"Equipment",
+            template:"./views/equipment.jade"
+        },{
+            url:"/blog",
+            name:"Blog",
+            template:"./views/blog.jade"
+        },{
+            url:"/referenzen",
+            name:"Referenzen",
+            template:"./views/referenzen.jade"
+        },{
+            url:"/crew",
+            name:"Crew",
+            template:"./views/crew.jade"
+        },{
+            url:"/kontakt",
+            name:"Kontakt",
+            template:"./views/kontakt.jade"
+        }
+    ];
+
+
+    website.build(__dirname,{
+        "Home":"./views/home.jade",
+        "Dienstleistungen":"./views/dienstleistungen.jade"
     },function(err,build){
         var app = express();
         app.use(compression());
         app.use(website.router);
         app.use("/public/",express.static(path.resolve(__dirname,"./public")));
-        app.use("/",function(req,res){
-            website.render(res,"Home",{
-                page:{
-                    canEdit:true
-                }
-            });
+        app.get("/",function(req,res){
+            website.render(res,"Home",{});
         });
+        app.get("/dienstleistungen",function(req,res){
+            website.render(res,"Dienstleistungen",{});
+        });
+
         app.listen(8080);
         console.log("listening on port 8080...")
     });
