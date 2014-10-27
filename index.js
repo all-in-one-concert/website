@@ -7,7 +7,7 @@ var mongo = require("mongodb");
 console.log("connecting...");
 mongo.connect("mongodb://cloudstudios.ch:27017/websitify",function(err,db){
     if(err) throw err;
-    
+
     var app = express();
     app.use(compression());
     app.use("/public/",express.static(path.resolve(__dirname,"./public")));

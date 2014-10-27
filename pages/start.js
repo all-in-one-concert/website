@@ -1,14 +1,6 @@
-function Start(data){
-    this.name = data.name||"Start";
-    this.url = data.url||"/";
-    this.title = data.title||url;
-}
+var Page = require("neutronjs").Page;
 
-Start.prototype.getData = function(req,cb){
-    cb({
-
-    })
-}
-
-
-module.exports = Start;
+module.exports = new Page({
+    id:"Start",
+    componentPath:require.resolve("../views/home.jade")
+});;
