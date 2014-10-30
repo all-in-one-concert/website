@@ -12,13 +12,16 @@ mongo.connect("mongodb://cloudstudios.ch:27017/websitify",function(err,db){
     app.use(compression());
     app.use("/public/",express.static(path.resolve(__dirname,"./public")));
 
-    var website = new neutronjs.Website("/neutron/");
-    website.registerPages(
-        require("./pages/start.js")
+    var website = new neutronjs.Website({path:"/neutron/"});
+    
+    website.registerViews(
+        require.resolve("./views/start.jade"),
+        require.resolve("./views/dienstleistungen.jade")
     );
-
-    website.set("/","Start",{title:"Start"});
-
+    
+    website.addRoute("/","Start",{});
+    website.addRoute("/dienstleistungen","Dienstleistungen",{});
+    
     app.use(website);
 
 

@@ -42,10 +42,10 @@ append body
                         li Support und Einbau von Festinstallationen
                         li Service und Reparaturen (z.B GLP, Martin, ETC, ...)
                     a.btn.btn-danger.pull-right(href='/dienstleistungen',onClick=function(){this.refs.nav.dienstleistungen()}.bind(this)) Mehr
-                    Component("page"=this,"data"={type:"Text",html:"Hello World!"},ref="equipment")
+                    //Component("page"=this,"data"={type:"Text",html:"Hello World!"},ref="equipment")
                     a.btn.btn-danger.pull-right(href='# ') Mehr
                 .col-md-6
-                    Component("page"=this,"data"={type:"Text",html:"Hello World!"},ref="blog")
+                    //Component("page"=this,"data"={type:"Text",html:"Hello World!"},ref="blog")
                     a.btn.btn-danger(href='# ') Mehr
         Footer
 main.
@@ -78,4 +78,9 @@ main.
         this.saveComponents(["dienstleistungen","equipment","blog"],function(data){
             cb(data);
         });
+    }
+    
+    exports.statics = {
+        id:"Start",
+        handler:"../pages/start.js"
     }
