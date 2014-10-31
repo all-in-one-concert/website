@@ -1,0 +1,44 @@
+extends base
+
+append head
+    script("src"="https://maps.google.com/maps/api/js?sensor=false")
+
+append title
+    | Kontakt
+
+append content
+    .container
+        h1 Kontakt
+        p Das hochqualifizierte Team hinter den Kulissen.
+        
+        .row
+            .col-md-3
+                h4 Fabrizzio Mezadri
+                img(src="/public/images/Fabrizzio.jpg")
+                p Geschäftsführer
+                p Bereich Licht-, Video- und Pyrotechnik
+            .col-md-3
+                h4 Freelancer
+                img(src="/public/images/Freelancer.jpg")
+                p Freelancer: 15 freie Mitarbeiter
+                p in allen Gewerken
+
+    div(ref="map",style="height:500px")        
+main.
+    exports.componentDidMount = function(){
+        var latlng = new google.maps.LatLng(47.170176,8.283691);
+        var map = new google.maps.Map(this.refs.map.getDOMNode(), {
+          zoom: 14,
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          scrollwheel:false
+        });   
+        var marker = new google.maps.Marker({
+            position: latlng,
+            title:"All in one Concert"
+        }).setMap(map);
+    }
+    exports.statics = {
+        id:"Contact",
+        handler:"../pages/dienstleistungen.js"
+    }

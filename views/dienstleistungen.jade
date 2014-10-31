@@ -1,30 +1,53 @@
-extends ../node_modules/neutronjs/page.jade
+extends base
 
-append head
-    title All in one Concert
-    link(href='/public/css/bootstrap.css', rel='stylesheet', type='text/css')
-    link(href="/public/css/font-awesome.min.css", rel="stylesheet", type="text/css")
-    link(href="/public/style.css", rel="stylesheet", type="text/css")
-    script(type='text/javascript', src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js')
-    script(type='text/javascript', src='http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js')
+append title
+    | Dienstleistungen
+        
+append content
+    .container
+        h1 Dienstleistungen
+        .row
+            .col-md-9.col-xs-12
+                p Als Generalunternehmen für Veranstaltungstechnik beliefern wir sie gerne mit folgenden Dienstleistungen:                    
+                ul
+                    li Lichttechnik
+                    li Tontechnik
+                    li Pyroeffekte Indoor & Outdoor
+                    li Videotechnik
+                    li Bühnenbau
+                    li Optische Gestaltung Ihres Auftritts
+                    li Betreuung des Anlasses
+                    li Reparatur & Service Center
+                h4 Egal welche Art von Anlass...
+                p wir bieten Ihnen einen reibungslosen Einbau, umfassende Wartung und die Einführung Ihrer Mitarbeiter.                
+                ul
+                    li Konzerte
+                    li Messe- und Industriepräsentationen
+                    li Parties
+                    li Theater
+                    li Openairs
+                    li Festivals
+                    li Tourneen
+                    li Animationen                        
+                
+                a.btn.btn-primary.pull-right(href="") Fordern Sie eine Offerte an!
+                .clearfix
 
+                h2 Vermietung & Verkauf
+                p
+                    | Natürlich beliefern wir Sie auch gerne für die Vermietung und den Verkauf aus dem Sortiment der zahlreichen Hersteller im Veranstaltungstechnikbereich.
+                    br
+                    | All in one Concert vermietet aus ihrem umfangreichen Sortiment die passende Infrastruktur, um Ihren Anlass auf höchstem Niveau zu präsentieren.
 
-append body
-    Nav(ref="nav")
-    .main-content
-        .container
-            h2 Unsere Dienstleistungen
-            ul
-                li Verkauf/ Vermietung von Veranstaltungstechnik (Licht, Ton, Pyro und Video)
-                li Betreuung der Technik an Ihrem Event
-                li Planung Ihrer Veranstaltung
-                li Support und Einbau von Festinstallationen
-                li Service und Reparaturen (z.B GLP, Martin, ETC, ...)
-        Footer
-main.
-    var Nav = require("./nav.jade");
-    var Footer = require("./footer.jade");
-    
+                a.btn.btn-primary.pull-right(href="/equipment") Sehen Sie sich unser Equipment an!
+                .clearfix
+            .col-md-3.col-xs-12
+                ul.list-group
+                    li.list-group-item
+                        b Unsere AGB
+                    li.list-group-item
+                        a(href="") Allgemeine Geschäftsbedingungen
+main.    
     exports.statics = {
         id:"Dienstleistungen",
         handler:"../pages/dienstleistungen.js"

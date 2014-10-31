@@ -16,11 +16,19 @@ mongo.connect("mongodb://cloudstudios.ch:27017/websitify",function(err,db){
     
     website.registerViews(
         require.resolve("./views/start.jade"),
-        require.resolve("./views/dienstleistungen.jade")
+        require.resolve("./views/dienstleistungen.jade"),
+        require.resolve("./views/equipment.jade"),
+        require.resolve("./views/referenzen.jade"),
+        require.resolve("./views/crew.jade"),
+        require.resolve("./views/contact.jade")
     );
     
     website.addRoute("/","Start",{});
     website.addRoute("/dienstleistungen","Dienstleistungen",{});
+    website.addRoute("/equipment","Equipment",{});
+    website.addRoute("/referenzen","Referenzen",{});
+    website.addRoute("/crew","Crew",{});
+    website.addRoute("/kontakt","Contact",{});
     
     app.use(website);
 

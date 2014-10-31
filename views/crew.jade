@@ -1,0 +1,26 @@
+extends base
+
+append title
+    | Crew
+
+append content
+    .container
+        h1 Crew
+        p Das hochqualifizierte Team hinter den Kulissen.
+        
+        .row
+            .col-md-3
+                h4 Fabrizzio Mezadri
+                img(src="/public/images/Fabrizzio.jpg")
+                p Geschäftsführer
+                p Bereich Licht-, Video- und Pyrotechnik
+            .col-md-3
+                h4 Freelancer
+                img(src="/public/images/Freelancer.jpg")
+                p Freelancer: 15 freie Mitarbeiter
+                p in allen Gewerken
+main.
+    exports.statics = {
+        id:"Crew",
+        handler:"../pages/dienstleistungen.js"
+    }

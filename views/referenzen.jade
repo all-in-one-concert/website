@@ -1,0 +1,39 @@
+extends base
+
+append title
+    | Referenzen
+
+append content
+    .container
+        h1 Referenzen
+        .row
+            each reference, i in references
+                .col-md-3
+                    h4= reference.title
+                    img("src"=reference.image)
+                if i%4 == 0
+                    .clearfix
+main.
+    var references = [
+        {title:"Treibhaus Luzern",image:"http://www.treibhausluzern.ch/wp-content/uploads/2012/08/iconLeft-65x48.png"},
+        {title:"Zwischenbühne",image:"http://www.zwischenbuehne.ch/tl_files/zwischenbuehne/images/logo-print.jpg"},
+        {title:"Verein Am Ball für Strassenkinder",image:"http://www.amballfuerstrassenkinder.ch/wp-content/uploads/2014/07/am_ball_f%C3%BCr_Strassenkinder_logo5.png"},
+        {title:"Divine",image:"http://www.divinemusic.ch/pics/logo1.gif"},
+        {title:"Radio 3Fach",image:"http://www.78s.ch/wp-content/uploads/2014/10/3Fach.jpg"},
+        {title:"LuzernPlus",image:"http://www.luzernplus.ch/fileadmin/logo.jpg"},
+        {title:"Schwarzes Schaf",image:"http://services.tilllate.com/de/services/imageresizer/scaleeventflyer/10601248/560/300/0"},
+        {title:"Gluggsi Musig Ebikon",image:"/public/images/glugsi.jpg"},
+        {title:"Monster Guugger Bueri",image:"http://www.buchrain.ch/de/images/3da2d275a409d.jpg"},
+        {title:"Südpol",image:"http://neubad.org/sites/default/files/Logo%20und%20Adresse.jpg"},
+        {title:"Gemeinde Horw",image:"http://www.horw.ch/de/images/logo.gif"},
+        {title:"Gianna Nanini Konzert 26.03.04",image:"http://www.giannanannini.com/assets/images/template/logo.png"},
+        {title:"SUVA Zentralschweiz",image:"http://www.suva.ch/layout-logo-suva.gif"},
+        {title:"Modul GmbH",image:"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRbFwzyYZbcRhdNE0tT9O2D4ezzHP92bOTkwPBPqlmd6FF8J_WbTls20ms"},
+        {title:"Yacht Club Luzern",image:"http://www.ycl.ch/wp-content/uploads/striking-custom-images/logo_overlay.png"},
+        {title:"Swisscanto",image:"http://www.swisscanto.ch/docroot/swisscanto-common/style/img/logo_swisscanto.gif"},
+        {title:"Segelklub Meggen",image:"http://u.jimdo.com/www31/o/scb42fcacb73b61dd/img/iab9b43e21d635430/1323330705/cache/image.jpg"}
+    ];
+    exports.statics = {
+        id:"Referenzen",
+        handler:"../pages/dienstleistungen.js"
+    }

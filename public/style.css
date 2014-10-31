@@ -6,10 +6,16 @@ body{
     line-height: 1.5em;
     position:relative;
     min-height:100%;
+    font-size:12pt;
+    display:table;
+    width:100%;
+    height:100%;
+}
+img{
+    max-width:100%;
 }
 .nav a {
     color: black;
-    font-family: century gothic;
     font-weight: bold;
     font-size: 14pt;
 }
@@ -28,17 +34,22 @@ body{
 }
 .footer{
     background-color:#333;
-    padding-top:50px;
-    padding-bottom:50px;
     color:white;
-    position:absolute;
-    bottom:0;
+    display:table-row;
     width:100%;
 }
-.main-content{
-    padding-top:100px;
-    padding-bottom:250px;
+.navbar-spacer{
+    height:100px;
+    display:table-row;
 }
+.main-content{
+    margin-top:100px;
+    padding-bottom:250px;
+    display:table-row;
+    width:100%;
+    height:100%;
+}
+
 #share-buttons img {
     width: 45px;
     padding: 5px;
