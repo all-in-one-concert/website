@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <style>
+            body,html{
+                margin:0;
+                padding:0;
+            }
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&sensorfalse"></script>
+        <script>
+            var latlng = new google.maps.LatLng(47.170176,8.283691);
+            var map = new google.maps.Map(document.body, {
+              zoom: 14,
+              center: latlng,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              scrollwheel:false
+            });   
+            var marker = new google.maps.Marker({
+                position: latlng,
+                title:"All in one Concert"
+            }).setMap(map);
+        </script>
+    </body>
+</html>

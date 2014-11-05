@@ -8,11 +8,12 @@ append content
         h1 Referenzen
         .row
             each reference, i in references
+                if i%4 == 0
+                    .clearfix
                 .col-md-3
                     h4= reference.title
                     img("src"=reference.image)
-                if i%4 == 0
-                    .clearfix
+                
 main.
     var references = [
         {title:"Treibhaus Luzern",image:"http://www.treibhausluzern.ch/wp-content/uploads/2012/08/iconLeft-65x48.png"},

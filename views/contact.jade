@@ -1,43 +1,84 @@
 extends base
 
-append head
-    script("src"="https://maps.google.com/maps/api/js?sensor=false")
-
 append title
     | Kontakt
 
 append content
     .container
         h1 Kontakt
-        p Das hochqualifizierte Team hinter den Kulissen.
-        
-        .row
-            .col-md-3
-                h4 Fabrizzio Mezadri
-                img(src="/public/images/Fabrizzio.jpg")
-                p Geschäftsführer
-                p Bereich Licht-, Video- und Pyrotechnik
-            .col-md-3
-                h4 Freelancer
-                img(src="/public/images/Freelancer.jpg")
-                p Freelancer: 15 freie Mitarbeiter
-                p in allen Gewerken
-
-    div(ref="map",style="height:500px")        
+        div All in one Concert GmbH
+        div Huwilstrasse 7
+        div 6280 Hochdorf 
+        div info@allinone-concert.ch
+        div www.allinone-concert.ch
+        div Lager: Huwilstrasse 7, 6280 Hochdorf (Neben Moto Wicki)
+        div Fabrizio Mezzadri +4179 241 71 77 
+        div Handelsregisternr. CH-100.4.787.200-0
+        div MwSt ID: 704 066
+        br
+        br
+    div(ref="map",style="height:500px")
+        iframe("src"="/public/map.html" width="100%" height="100%" frameBorder="0")
+    .container
+        h1 Offerte anfordern
+        .form-horizontal
+            .form-group
+                label.control-label.col-xs-3 Vor- und Nachname
+                .col-xs-9
+                    input.form-control(type="text")
+            .form-group
+                label.control-label.col-xs-3 Firma
+                .col-xs-9
+                    input.form-control(type="text")
+            .form-group
+                label.control-label.col-xs-3 Adresse
+                .col-xs-9
+                    input.form-control(type="text")
+            .form-group
+                label.control-label.col-xs-3 PLZ und Ort
+                .col-xs-3
+                    input.form-control(type="text")
+                .col-xs-6
+                    input.form-control(type="text")
+            .form-group
+                label.control-label.col-xs-3 Telefon
+                .col-xs-9
+                    input.form-control(type="text")
+            .form-group
+                label.control-label.col-xs-3 E-Mail-Adresse
+                .col-xs-9
+                    input.form-control(type="text")
+            br
+            br
+            .form-group
+                label.control-label.col-xs-3 Art der Anfrage
+                .col-xs-9
+                    select.form-control(type="text")
+                        option Offerte
+            br
+            br
+            .form-group
+                label.control-label.col-xs-3 Art des Events
+                .col-xs-9
+                    select.form-control(type="text")
+                        option Konzert
+            .form-group
+                label.control-label.col-xs-3 Datum des Events
+                .col-xs-9
+                    input.form-control(type="text")
+            .form-group
+                label.control-label.col-xs-3 Ihre Nachricht
+                .col-xs-9
+                    textarea.form-control(style="min-height:300px")
+        br
+        br
+        br
+        p(style="text-align:center")
+            button.btn.btn-primary Anfrage versenden
+        br
+        br
+        br
 main.
-    exports.componentDidMount = function(){
-        var latlng = new google.maps.LatLng(47.170176,8.283691);
-        var map = new google.maps.Map(this.refs.map.getDOMNode(), {
-          zoom: 14,
-          center: latlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-          scrollwheel:false
-        });   
-        var marker = new google.maps.Marker({
-            position: latlng,
-            title:"All in one Concert"
-        }).setMap(map);
-    }
     exports.statics = {
         id:"Contact",
         handler:"../pages/dienstleistungen.js"
