@@ -53,23 +53,35 @@ append content
             .form-group
                 label.control-label.col-xs-3 Art der Anfrage
                 .col-xs-9
-                    select.form-control(type="text")
+                    select.form-control(type="text" ref="requestType" onChange=this.onRequestTypeChange.bind(this))
                         option Offerte
+                        option persönliches Gespräch
+                        option Prospekt
+                        option Mietpreisliste
+                        option Feedback
+                        option sonstige Anfrage                        
             br
             br
-            .form-group
-                label.control-label.col-xs-3 Art des Events
-                .col-xs-9
-                    select.form-control(type="text")
-                        option Konzert
-            .form-group
-                label.control-label.col-xs-3 Datum des Events
-                .col-xs-9
-                    input.form-control(type="text")
+            if(!this.props.requestType || this.props.requestType == "Offerte")
+                .form-group
+                    label.control-label.col-xs-3 Art des Events
+                    .col-xs-9
+                        select.form-control(type="text")
+                            option Konzert
+                            option Party
+                            option Messe
+                            option Apero
+                            option Catering
+                            option Präsentation
+                            option Special Event
+                .form-group
+                    label.control-label.col-xs-3 Datum des Events
+                    .col-xs-9
+                        input.form-control(type="text")
             .form-group
                 label.control-label.col-xs-3 Ihre Nachricht
                 .col-xs-9
-                    textarea.form-control(style="min-height:300px")
+                    TextArea.form-control
         br
         br
         br
@@ -79,6 +91,13 @@ append content
         br
         br
 main.
+    var TextArea = require("react-textarea-autosize");
+    
+    exports.onRequestTypeChange = function(){
+        this.props.requestType = this.refs.requestType.getDOMNode().value;
+        this.forceUpdate();
+    }
+    
     exports.statics = {
         id:"Contact",
         handler:"../pages/dienstleistungen.js"

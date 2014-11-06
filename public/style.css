@@ -28,6 +28,10 @@ img{
     color:white;
 }
 
+.carousel{
+    background:#333;
+}
+
 .apos-refreshable{
     position:relative;
     min-height:100%;

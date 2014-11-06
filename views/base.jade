@@ -1,6 +1,7 @@
 extends ../node_modules/neutronjs/page.jade
 
 append head
+    meta(charSet="utf-8")
     title
         block title
     link(href='/public/css/bootstrap.css', rel='stylesheet', type='text/css')
@@ -20,20 +21,10 @@ append body
                     span.glyphicon.glyphicon-align-justify(style={color:"red"})
             .collapse.navbar-collapse.navbar-ex1-collapse
                     ul.nav.navbar-nav.navbar-right(style={'margin-top':' 30px;'})
-                        li
-                            a(href='/' className=this.props.active=="home"?"active":"") Start
-                        li
-                            a(href='/dienstleistungen') Dienstleistungen
-                        li
-                            a(href='/equipment') Equipment
-                        li
-                            a(href='/blog') Blog
-                        li
-                            a(href='/referenzen') Referenzen
-                        li
-                            a(href='/crew') Crew
-                        li
-                            a(href='/kontakt') Kontakt
+                        - var active = this.getActive();
+                        each m in this.menu
+                            li
+                                a(href=m.location className=(m.location == active?"active":""))= m.name
     .navbar-spacer
     .main-content
         block content
@@ -81,3 +72,22 @@ append body
                         | www.allinone-concert.ch
         br
         br
+main.
+    exports.menu = [
+        {name:"Start",location:"/"},
+        {name:"Dienstleistungen",location:"/dienstleistungen"},
+        {name:"Equipment",location:"/equipment"},
+        {name:"Blog",location:"/blog"},
+        {name:"Referenzen",location:"/referenzen"},
+        {name:"Crew",location:"/crew"},
+        {name:"Kontakt",location:"/kontakt"}
+    ];
+    
+    exports.getActive = function(){
+        var active = "";
+        for(var i = 0; i < this.menu.length; i++){
+            var e = this.menu[i];
+            if(this.props.path.indexOf(e.location) == 0 && active.length < e.location.length) active = e.location;
+        }
+        return active;        
+    }
