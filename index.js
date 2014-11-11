@@ -14,23 +14,23 @@ mongo.connect(config.db,function(err,db){
     app.use("/public/",express.static(path.resolve(__dirname,"./public")));
 
     var website = new neutronjs.Website({path:"/neutron/"});
-    
-    website.registerViews(
-        require.resolve("./views/start.jade"),
-        require.resolve("./views/dienstleistungen.jade"),
-        require.resolve("./views/equipment.jade"),
-        require.resolve("./views/referenzen.jade"),
-        require.resolve("./views/crew.jade"),
-        require.resolve("./views/contact.jade")
-    );
-    
+
+    website.registerViews({
+        Start: require.resolve("./views/start.jade"),
+        Dienstleistungen: require.resolve("./views/dienstleistungen.jade"),
+        Equipment: require.resolve("./views/equipment.jade"),
+        Referenzen: require.resolve("./views/referenzen.jade"),
+        Crew: require.resolve("./views/crew.jade"),
+        Contact: require.resolve("./views/contact.jade")
+    });
+
     website.addRoute("/","Start",{});
     website.addRoute("/dienstleistungen","Dienstleistungen",{});
     website.addRoute("/equipment","Equipment",{});
     website.addRoute("/referenzen","Referenzen",{});
     website.addRoute("/crew","Crew",{});
     website.addRoute("/kontakt","Contact",{});
-    
+
     app.use(website);
 
 
