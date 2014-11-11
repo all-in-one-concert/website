@@ -3,9 +3,10 @@ var express = require("express");
 var compression = require("compression");
 var path = require("path");
 var mongo = require("mongodb");
+var config = require("./config.js");
 
 console.log("connecting...");
-mongo.connect("mongodb://cloudstudios.ch:27017/websitify",function(err,db){
+mongo.connect(config.db,function(err,db){
     if(err) throw err;
 
     var app = express();
@@ -33,7 +34,7 @@ mongo.connect("mongodb://cloudstudios.ch:27017/websitify",function(err,db){
     app.use(website);
 
 
-    app.listen(8080);
-    console.log("listening on port 8080...")
+    app.listen(config.port);
+    console.log("listening on port "+config.port+"...")
 
 });
