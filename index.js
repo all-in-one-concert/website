@@ -15,21 +15,14 @@ mongo.connect(config.db,function(err,db){
 
     var website = new neutronjs.Website({path:"/neutron/"});
 
-    website.registerViews({
-        Start: require.resolve("./views/start.jade"),
-        Dienstleistungen: require.resolve("./views/dienstleistungen.jade"),
-        Equipment: require.resolve("./views/equipment.jade"),
-        Referenzen: require.resolve("./views/referenzen.jade"),
-        Crew: require.resolve("./views/crew.jade"),
-        Contact: require.resolve("./views/contact.jade")
-    });
+    website.registerViewsInDirectory(path.resolve(__dirname,"./views"));
 
-    website.addRoute("/","Start",{});
-    website.addRoute("/dienstleistungen","Dienstleistungen",{});
-    website.addRoute("/equipment","Equipment",{});
-    website.addRoute("/referenzen","Referenzen",{});
-    website.addRoute("/crew","Crew",{});
-    website.addRoute("/kontakt","Contact",{});
+    website.addRoute("/","start");
+    website.addRoute("/dienstleistungen","dienstleistungen");
+    website.addRoute("/equipment","equipment");
+    website.addRoute("/referenzen","referenzen");
+    website.addRoute("/crew","crew");
+    website.addRoute("/kontakt","contact");
 
     app.use(website);
 
