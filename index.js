@@ -13,7 +13,7 @@ mongo.connect(config.db,function(err,db){
     app.use(compression());
     app.use("/public/",express.static(path.resolve(__dirname,"./public")));
 
-    var website = new neutronjs.Website({path:"/neutron/"});
+    var website = new neutronjs.Website({path:"/neutron/",db:db});
 
     website.registerViewsInDirectory(path.resolve(__dirname,"./views"));
 
@@ -23,6 +23,8 @@ mongo.connect(config.db,function(err,db){
     website.addRoute("/referenzen","referenzen");
     website.addRoute("/crew","crew");
     website.addRoute("/kontakt","contact");
+    
+    website.registerAdminModule(require("./modules/blog"));
 
     app.use(website);
 
