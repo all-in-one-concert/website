@@ -17,12 +17,9 @@ append content
 
     //FileManager
 
-    .container(onClick=this.doIt)
-        .jumbotron()
-            h1 Bereit für Ihren Event!
-            | Die All in one Concert GmbH Veranstaltungstechnik ist ein Dienstleistungsunternehmen im Bereich der Eventtechnik. Durch den besten Einsatz unserer modernsten Veranstaltungstechnik, sorgen wir für die gewünschte Beachtung ihres Events.
-            br
-            | Wir sind ein kompetenter und zuverlässiger Partner für die Eventtechnik unserer Zeit. Durch das dynamische und erfolgsorientierte Team der All in one Concert GmbH profitieren unsere Kunden von einem hervorragendem Know-how und dem persönlichen Kontakt, der Ihnen kostengünstige Lösungen bietet.
+    .container(onClick=this.doIt)        
+        .jumbotron
+            Component(key="props.page.data.jumbo",type="text")
     .container(style={'padding-bottom':'50px'})
         .row
             .col-md-6
@@ -67,13 +64,15 @@ append content
                     p Nun endlich sind die PokketMixer auch in der Schweiz erhältlich. Bestellen Sie exklusiv das trendige Produkt in verschiedenen Farben bei uns.
                         a(href="")  Weiterlesen
 main.
-    var Component = require("neutronjs").components.Component;
+    var Component = require("neutronjs/lib/components/component");
     var FileManager = require("neutronjs").components.FileManager;
     var AdminPanel = require("neutronjs").components.AdminPanel;
 
     var Carousel = require("react-bootstrap/Carousel");
     var CarouselItem = require("react-bootstrap/CarouselItem");
     var async = require("async");
+    
+
 
 
     exports.saveComponents = function(names,cb){

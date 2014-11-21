@@ -87,7 +87,7 @@ main.
         var active = "";
         for(var i = 0; i < this.menu.length; i++){
             var e = this.menu[i];
-            if(this.props.path.indexOf(e.location) == 0 && active.length < e.location.length) active = e.location;
+            if(this.props.page.path.indexOf(e.location) == 0 && active.length < e.location.length) active = e.location;
         }
         return active;        
     }

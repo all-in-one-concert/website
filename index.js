@@ -17,7 +17,7 @@ mongo.connect(config.db,function(err,db){
 
     website.registerViewsInDirectory(path.resolve(__dirname,"./views"));
 
-    website.addRoute("/","start");
+    website.addRoute("/","start", {handler:require("./pages/default.js"), id:"start"});
     website.addRoute("/dienstleistungen","dienstleistungen");
     website.addRoute("/equipment","equipment");
     website.addRoute("/referenzen","referenzen");
