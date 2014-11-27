@@ -42,6 +42,10 @@ img{
     display:table-row;
     width:100%;
 }
+.footer h4{
+    color: #EA5D0E;
+    margin-top:0px;
+}
 .navbar-spacer{
     height:100px;
     display:table-row;

@@ -20,7 +20,7 @@ mongo.connect(config.db,function(err,db){
     
 
     website.addRoute("/","start", {handler:require("./pages/default.js"),data:{base:"base",start:"start"}});
-    website.addRoute("/dienstleistungen","dienstleistungen",{handler:require("./pages/default.js"),data:{base:"base",services:"services"}});
+    website.addRoute("/dienstleistungen","services",{handler:require("./pages/default.js"),data:{base:"base",services:"services"}});
     website.addRoute("/equipment","equipment",{handler:require("./pages/default.js"),data:{base:"base",equipment:"equipment"}});
     website.addRoute("/referenzen","referenzen",{handler:require("./pages/default.js"),data:{base:"base",references:"references"}});
     website.addRoute("/crew","crew",{handler:require("./pages/default.js"),data:{base:"base",crew:"crew"}});
