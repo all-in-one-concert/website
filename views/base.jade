@@ -40,17 +40,9 @@ append body
                     br
                     br
                     br
-                    p
-                        | Copyright 2013 All in one Concert GmbH
-                        br
-                        | Created by cloudstudios.ch
+                    Component(key="props.page.data.base.footerleft",type="area")
                 .col-md-4(style={'color': 'white'})
-                    h4.text-primary
-                        | Empfehlen Sie uns!
-                    p
-                        | Waren Sie zufrieden mit unserem Service?
-                        br
-                        | Sagen sie es weiter!
+                    Component(key="props.page.data.base.footermiddle",type="area")
                     #share-buttons
                         a(href='http://www.facebook.com/sharer.php?u=http://aioc.ch', target='_blank')
                             img(src='http://www.simplesharebuttons.com/images/somacro/facebook.png', alt='Facebook')
@@ -61,18 +53,12 @@ append body
                         a(href='mailto:?Subject=All in one Concert&Body=I%20saw%20this%20and%20thought%20of%20you!%20 http://aioc.ch')
                             img(src='http://www.simplesharebuttons.com/images/somacro/email.png', alt='Email')
                 .col-md-4
-                    h4.text-primary Kontakt
-                    p
-                        | Huwilstrasse 7
-                        br
-                        | 6280Hochdorf
-                        br
-                        | info@allinone-concert.ch
-                        br
-                        | www.allinone-concert.ch
+                    Component(key="props.page.data.base.footerright",type="area")
         br
         br
 main.
+    var Component = require("neutronjs/lib/components/component")
+    
     exports.menu = [
         {name:"Start",location:"/"},
         {name:"Dienstleistungen",location:"/dienstleistungen"},

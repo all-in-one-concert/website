@@ -16,13 +16,15 @@ mongo.connect(config.db,function(err,db){
     var website = new neutronjs.Website({path:"/neutron/",db:db});
 
     website.registerViewsInDirectory(path.resolve(__dirname,"./views"));
+    
+    
 
-    website.addRoute("/","start", {handler:require("./pages/default.js"), id:"start"});
-    website.addRoute("/dienstleistungen","dienstleistungen");
-    website.addRoute("/equipment","equipment");
-    website.addRoute("/referenzen","referenzen");
-    website.addRoute("/crew","crew");
-    website.addRoute("/kontakt","contact");
+    website.addRoute("/","start", {handler:require("./pages/default.js"),data:{base:"base",start:"start"}});
+    website.addRoute("/dienstleistungen","dienstleistungen",{handler:require("./pages/default.js"),data:{base:"base",services:"services"}});
+    website.addRoute("/equipment","equipment",{handler:require("./pages/default.js"),data:{base:"base",equipment:"equipment"}});
+    website.addRoute("/referenzen","referenzen",{handler:require("./pages/default.js"),data:{base:"base",references:"references"}});
+    website.addRoute("/crew","crew",{handler:require("./pages/default.js"),data:{base:"base",crew:"crew"}});
+    website.addRoute("/kontakt","contact",{handler:require("./pages/default.js"),data:{base:"base",contact:"contact"}});
     
     website.registerAdminModule(require("./modules/blog"));
 

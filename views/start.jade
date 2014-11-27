@@ -19,31 +19,16 @@ append content
 
     .container(onClick=this.doIt)        
         .jumbotron
-            Component(key="props.page.data.jumbo",type="text")
+            Component(key="props.page.data.start.jumbo",type="area")
     .container(style={'padding-bottom':'50px'})
         .row
             .col-md-6
                 div
-                    h2 Dienstleistungen
-                    ul
-                        li Verkauf/ Vermietung von Veranstaltungstechnik (Licht, Ton, Pyro und Video)
-                        li Betreuung der Technik an Ihrem Event
-                        li Planung Ihrer Veranstaltung
-                        li Support und Einbau von Festinstallationen
-                        li Service und Reparaturen (z.B GLP, Martin, ETC, ...)
+                    Component(key="props.page.data.start.services",type="area")
                     a.btn.btn-primary.pull-right(href='/dienstleistungen',onClick=function(){this.refs.nav.dienstleistungen()}.bind(this)) ...und vieles mehr!
                     .clearfix
                 div
-                    h2 Equipment
-                    ul
-                        li Moving Heads
-                        li Scanner
-                        li Goboprojektor
-                        li Goboherstellung
-                        li Trussing
-                        li Scheinwerfer (LED & Konventionell)
-                        li Blinder & Fluter
-                        li Himmelstrahler
+                    Component(key="props.page.data.start.equipment",type="area")
                     a.btn.btn-primary.pull-right(href='/equipment',onClick=function(){this.refs.nav.dienstleistungen()}.bind(this)) ...und vieles mehr!
                     .clearfix
             .col-md-6
