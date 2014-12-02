@@ -1,4 +1,4 @@
-extends ../node_modules/neutronjs/page.jade
+extends neutronjs/page.jade
 
 append head
     meta(charSet="utf-8")
@@ -40,9 +40,9 @@ append body
                     br
                     br
                     br
-                    Component(key="props.page.data.base.footerleft",type="area")
+                    Widget(data=this.props.page.data.footerleft)
                 .col-md-4(style={'color': 'white'})
-                    Component(key="props.page.data.base.footermiddle",type="area")
+                    Widget(data=this.props.page.data.footermiddle)
                     #share-buttons
                         a(href='http://www.facebook.com/sharer.php?u=http://aioc.ch', target='_blank')
                             img(src='http://www.simplesharebuttons.com/images/somacro/facebook.png', alt='Facebook')
@@ -53,12 +53,12 @@ append body
                         a(href='mailto:?Subject=All in one Concert&Body=I%20saw%20this%20and%20thought%20of%20you!%20 http://aioc.ch')
                             img(src='http://www.simplesharebuttons.com/images/somacro/email.png', alt='Email')
                 .col-md-4
-                    Component(key="props.page.data.base.footerright",type="area")
+                    Widget(data=this.props.page.data.footerright)
         br
         br
 main.
-    var Component = require("neutronjs/lib/components/component")
-    
+    var Widget = require("neutronjs/lib/widget")
+
     exports.menu = [
         {name:"Start",location:"/"},
         {name:"Dienstleistungen",location:"/dienstleistungen"},
@@ -68,12 +68,12 @@ main.
         {name:"Crew",location:"/crew"},
         {name:"Kontakt",location:"/kontakt"}
     ];
-    
+
     exports.getActive = function(){
         var active = "";
         for(var i = 0; i < this.menu.length; i++){
             var e = this.menu[i];
             if(this.props.page.path.indexOf(e.location) == 0 && active.length < e.location.length) active = e.location;
         }
-        return active;        
+        return active;
     }

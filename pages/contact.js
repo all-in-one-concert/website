@@ -1,0 +1,1 @@
+module.exports.componentPath = require.resolve("../views/contact.jade");

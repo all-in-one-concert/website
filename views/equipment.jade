@@ -5,10 +5,10 @@ append title
 
 append content
     .container
-        Component(key="props.page.data.equipment.title",type="text")
+        Widget(data=this.props.page.data.title)
         .row
             .col-md-9.col-xs-12
-                Component(key="props.page.data.equipment.equipment",type="area")
+                Widget(data=this.props.page.data.equipment)
             .col-md-3.col-xs-12
                 ul.list-group
                     li.list-group-item
@@ -25,3 +25,6 @@ append content
                         a(href="") Global Truss
                     li.list-group-item
                         a(href="") ETC
+
+main.
+    var Widget = require("neutronjs/lib/widget.js")

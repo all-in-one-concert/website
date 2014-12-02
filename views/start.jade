@@ -1,4 +1,4 @@
-extends base
+extends ./base.jade
 
 append title
     | Start
@@ -17,18 +17,18 @@ append content
 
     //FileManager
 
-    .container(onClick=this.doIt)        
+    .container(onClick=this.doIt)
         .jumbotron
-            Component(key="props.page.data.start.jumbo",type="area")
+            Widget(data=this.props.page.data.jumbo)
     .container(style={'padding-bottom':'50px'})
         .row
             .col-md-6
                 div
-                    Component(key="props.page.data.start.services",type="area")
+                    Widget(data=this.props.page.data.services)
                     a.btn.btn-primary.pull-right(href='/dienstleistungen',onClick=function(){this.refs.nav.dienstleistungen()}.bind(this)) ...und vieles mehr!
                     .clearfix
                 div
-                    Component(key="props.page.data.start.equipment",type="area")
+                    Widget(data=this.props.page.data.equipment)
                     a.btn.btn-primary.pull-right(href='/equipment',onClick=function(){this.refs.nav.dienstleistungen()}.bind(this)) ...und vieles mehr!
                     .clearfix
             .col-md-6
@@ -49,33 +49,6 @@ append content
                     p Nun endlich sind die PokketMixer auch in der Schweiz erhältlich. Bestellen Sie exklusiv das trendige Produkt in verschiedenen Farben bei uns.
                         a(href="")  Weiterlesen
 main.
-    var Component = require("neutronjs/lib/components/component");
-    var FileManager = require("neutronjs").components.FileManager;
-    var AdminPanel = require("neutronjs").components.AdminPanel;
-
+    var Widget = require("neutronjs/lib/widget");
     var Carousel = require("react-bootstrap/Carousel");
     var CarouselItem = require("react-bootstrap/CarouselItem");
-    var async = require("async");
-    
-
-
-
-    exports.saveComponents = function(names,cb){
-        var self = this;
-        var result = {};
-        async.each(names,function(name,cb){
-            self.refs[name].save(function(data){
-                result[name] = data;
-                cb();
-            });
-        },function(){
-            cb(result);
-        });
-    }
-
-
-    exports.save = function(cb){
-        this.saveComponents(["dienstleistungen","equipment","blog"],function(data){
-            cb(data);
-        });
-    }
