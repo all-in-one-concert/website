@@ -5,13 +5,13 @@ append title
 
 append content
     .container
-        Widget(data=this.props.page.data.title)
+        Widget(data=this.props.data.title)
         .row
             .col-md-9.col-xs-12
-                Widget(data=this.props.page.data.services)
+                Widget(data=this.props.data.services)
                 a.btn.btn-primary.pull-right(href="") Fordern Sie eine Offerte an!
                 .clearfix
-                Widget(data=this.props.page.data.rental)
+                Widget(data=this.props.data.rental)
                 a.btn.btn-primary.pull-right(href="/equipment") Sehen Sie sich unser Equipment an!
                 .clearfix
             .col-md-3.col-xs-12

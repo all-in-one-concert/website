@@ -40,9 +40,9 @@ append body
                     br
                     br
                     br
-                    Widget(data=this.props.page.data.footerleft)
+                    Widget(data=this.props.data.footerleft)
                 .col-md-4(style={'color': 'white'})
-                    Widget(data=this.props.page.data.footermiddle)
+                    Widget(data=this.props.data.footermiddle)
                     #share-buttons
                         a(href='http://www.facebook.com/sharer.php?u=http://aioc.ch', target='_blank')
                             img(src='http://www.simplesharebuttons.com/images/somacro/facebook.png', alt='Facebook')
@@ -53,7 +53,7 @@ append body
                         a(href='mailto:?Subject=All in one Concert&Body=I%20saw%20this%20and%20thought%20of%20you!%20 http://aioc.ch')
                             img(src='http://www.simplesharebuttons.com/images/somacro/email.png', alt='Email')
                 .col-md-4
-                    Widget(data=this.props.page.data.footerright)
+                    Widget(data=this.props.data.footerright)
         br
         br
 main.
@@ -73,7 +73,7 @@ main.
         var active = "";
         for(var i = 0; i < this.menu.length; i++){
             var e = this.menu[i];
-            if(this.props.page.path.indexOf(e.location) == 0 && active.length < e.location.length) active = e.location;
+            if(this.props.path.indexOf(e.location) == 0 && active.length < e.location.length) active = e.location;
         }
         return active;
     }

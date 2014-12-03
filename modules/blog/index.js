@@ -1,4 +1,4 @@
 module.exports = {
     id:"Blog",
-    viewpath:require.resolve("./view.jade")
+    componentPath:require.resolve("./view.jade")
 }

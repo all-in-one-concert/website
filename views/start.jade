@@ -19,16 +19,16 @@ append content
 
     .container(onClick=this.doIt)
         .jumbotron
-            Widget(data=this.props.page.data.jumbo)
+            Widget(data=this.props.data.jumbo)
     .container(style={'padding-bottom':'50px'})
         .row
             .col-md-6
                 div
-                    Widget(data=this.props.page.data.services)
+                    Widget(data=this.props.data.services)
                     a.btn.btn-primary.pull-right(href='/dienstleistungen',onClick=function(){this.refs.nav.dienstleistungen()}.bind(this)) ...und vieles mehr!
                     .clearfix
                 div
-                    Widget(data=this.props.page.data.equipment)
+                    Widget(data=this.props.data.equipment)
                     a.btn.btn-primary.pull-right(href='/equipment',onClick=function(){this.refs.nav.dienstleistungen()}.bind(this)) ...und vieles mehr!
                     .clearfix
             .col-md-6
