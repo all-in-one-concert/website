@@ -5,8 +5,6 @@ var path = require("path");
 var mongo = require("mongodb");
 var config = require("./config.js");
 
-var List = require("neutronjs/lib/adminpanel/list.js");
-
 console.log("connecting...");
 mongo.connect(config.db,function(err,db){
     if(err) throw err;
@@ -24,8 +22,8 @@ mongo.connect(config.db,function(err,db){
     website.addRoute("/crew",require("./pages/crew"));
     website.addRoute("/kontakt",require("./pages/contact"));    
     
-    //website.registerAdminModule(require("./modules/blog"));
-    website.registerAdminModule(new List("test",{}));
+    //website.registerAdminModule(require("./modules/blog"));   
+    website.registerAdminModule(require("./modules/test"));
     
     app.use(website);
 
