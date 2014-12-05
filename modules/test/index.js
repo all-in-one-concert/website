@@ -1,4 +1,5 @@
 var List = require("neutronjs/lib/adminpanel/list.js");
+var WidgetType = require("neutronjs/lib/types/widget");
 
 var test = new List("test",{});
 test.add({
@@ -10,6 +11,10 @@ test.add({
     date:{
         type:Date,
         default:true
+    },
+    body:{
+        type:WidgetType,
+        widgetType:"area"
     }
 });
 
