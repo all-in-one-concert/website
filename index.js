@@ -18,6 +18,8 @@ mongo.connect(config.db,function(err,db){
     website.addRoute("/",require("./pages/start"));
     website.addRoute("/dienstleistungen",require("./pages/services"));
     website.addRoute("/equipment",require("./pages/equipment"));
+    website.addRoute("/blog",require("./pages/blog"));
+    website.addRoute("/blog/:id",require("./pages/blogpost"));
     website.addRoute("/referenzen",require("./pages/references"));
     website.addRoute("/crew",require("./pages/crew"));
     website.addRoute("/kontakt",require("./pages/contact"));

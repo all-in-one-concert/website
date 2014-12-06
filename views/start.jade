@@ -1,5 +1,11 @@
 extends ./base.jade
 
+append head
+    style.
+        .blog .websitify-text-component{
+            display:inline;
+        }
+
 append title
     | Start
 
@@ -31,7 +37,7 @@ append content
                     Widget(data=this.props.data.equipment)
                     a.btn.btn-primary.pull-right(href='/equipment',onClick=function(){this.refs.nav.dienstleistungen()}.bind(this)) ...und vieles mehr!
                     .clearfix
-            .col-md-6
+            .col-md-6.blog
                 h2 Neuigkeiten
                 each post in this.props.data.posts
                     div
@@ -39,6 +45,7 @@ append content
                             = post.title
                             small= " "+moment(post.date).format("DD.MM.YYYY")
                         Widget(data=post.preview)
+                        a(href="/blog/"+post._id)  Weiterlesen
 main.
     var Widget = require("neutronjs/lib/widget");
     var Carousel = require("react-bootstrap/Carousel");

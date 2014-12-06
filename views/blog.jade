@@ -1,0 +1,24 @@
+extends base
+
+append head
+    style.
+        .websitify-text-component{
+            display:inline;
+        }
+
+append title
+    | Blog
+
+append content
+    .container
+        h1 Blog
+        each post in this.props.data.posts
+            div
+                h4
+                    = post.title
+                    small= " "+moment(post.date).format("DD.MM.YYYY")
+                Widget(data=post.preview)
+                a(href="/blog/"+post._id)  Weiterlesen
+main.
+    var Widget = require("neutronjs/lib/widget.js");
+    var moment = require("moment");

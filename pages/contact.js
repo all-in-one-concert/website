@@ -1,2 +1,10 @@
-module.exports.componentPath = require.resolve("../views/contact.jade");
-module.exports.__proto__ = require("./base.js");
+var BasicPage = require("./basic.js");
+
+module.exports = BasicPage(
+    [require("./base.js")],
+    "contact",
+    {
+        contact:"area"
+    },
+    require.resolve("../views/contact.jade")
+);

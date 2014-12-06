@@ -1,0 +1,17 @@
+extends base
+
+append title
+    | Blog
+    
+append content
+    .container
+        h1
+            = this.props.data.post.title
+            small= " "+moment(this.props.data.post.date).format("DD.MM.YYYY")
+        Widget(data=this.props.data.post.preview)
+        br
+        Widget(data=this.props.data.post.body)
+main.
+    var Widget = require("neutronjs/lib/widget.js");
+    var moment = require("moment");
+                                

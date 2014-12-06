@@ -5,18 +5,7 @@ append title
 
 append content
     .container
-        h1 Kontakt
-        div All in one Concert GmbH
-        div Huwilstrasse 7
-        div 6280 Hochdorf
-        div info@allinone-concert.ch
-        div www.allinone-concert.ch
-        div Lager: Huwilstrasse 7, 6280 Hochdorf (Neben Moto Wicki)
-        div Fabrizio Mezzadri +4179 241 71 77
-        div Handelsregisternr. CH-100.4.787.200-0
-        div MwSt ID: 704 066
-        br
-        br
+        Widget(data=this.props.data.contact)
     div(ref="map",style="height:500px")
         iframe("src"="/public/map.html" width="100%" height="100%" frameBorder="0")
     .container
