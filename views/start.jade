@@ -33,22 +33,14 @@ append content
                     .clearfix
             .col-md-6
                 h2 Neuigkeiten
-                div
-                    h4 Sennheiser Pro Partner
-                        small  11. 11. 2014
-                    p In der letzten Woche konnte die All in one Concert endlich das Zertifikat als Sennheiser Audio Pro Partner entgegennehmen. Wir freuen uns auf die Zusammenarbeit mit Sennheiser und bieten unseren Kunden durch die Partnerschaft einen hervorragenden Service.
-                        a(href="")  Weiterlesen
-                div
-                    h4 Offizieller ETC Service-Partner
-                        small  11. 11. 2014
-                    p Wir haben uns auf die gängigsten Produkte in der Schweiz spezialisiert. Gerne stehen wir für den Service und Support dieser Produkte zur Verfügung. Danke unserem Lager und der hervorragenden Werkstatt können wir schnell und kostengünstig agieren.
-                        a(href="")  Weiterlesen
-                div
-                    h4 PokketMixer jetzt auch in der Schweiz
-                        small  11. 11. 2014
-                    p Nun endlich sind die PokketMixer auch in der Schweiz erhältlich. Bestellen Sie exklusiv das trendige Produkt in verschiedenen Farben bei uns.
-                        a(href="")  Weiterlesen
+                each post in this.props.data.posts
+                    div
+                        h4
+                            = post.title
+                            small= " "+moment(post.date).format("DD.MM.YYYY")
+                        Widget(data=post.preview)
 main.
     var Widget = require("neutronjs/lib/widget");
     var Carousel = require("react-bootstrap/Carousel");
     var CarouselItem = require("react-bootstrap/CarouselItem");
+    var moment = require("moment");

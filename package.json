@@ -14,7 +14,8 @@
     "react-googlemaps": "^0.3.0",
     "react-textarea-autosize": "^1.0.3",
     "reactify": "^0.15.2",
-    "neutronjs": "0.0.1"
+    "neutronjs": "0.0.1",
+    "moment": "~2.8.4"
   },
   "devDependencies": {},
   "scripts": {

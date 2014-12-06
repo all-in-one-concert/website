@@ -20,11 +20,10 @@ mongo.connect(config.db,function(err,db){
     website.addRoute("/equipment",require("./pages/equipment"));
     website.addRoute("/referenzen",require("./pages/references"));
     website.addRoute("/crew",require("./pages/crew"));
-    website.addRoute("/kontakt",require("./pages/contact"));    
-    
-    //website.registerAdminModule(require("./modules/blog"));   
-    website.registerAdminModule(require("./modules/test"));
-    
+    website.addRoute("/kontakt",require("./pages/contact"));
+
+    website.registerAdminModule(require("./modules/blog"));
+
     app.use(website);
 
 
