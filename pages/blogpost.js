@@ -26,7 +26,7 @@ module.exports.save = function(website,data,cb){
         function(cb){self._save(website,data,cb)},
         function(cb){
             website.saveWidgets([data.post.preview,data.post.body],function(){
-                website.db.collection("blogposts").update({_id:mongo.ObjectID(post._id)},{$set:{preview:data.post.preview,body:data.post.body}},cb);
+                website.db.collection("blogposts").update({_id:mongo.ObjectID(data.post._id)},{$set:{preview:data.post.preview,body:data.post.body}},cb);
             });
         }
     ],cb);
