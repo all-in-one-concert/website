@@ -25,6 +25,7 @@ mongo.connect(config.db,function(err,db){
     website.addRoute("/kontakt",require("./pages/contact"));
 
     website.registerAdminModule(require("./modules/blog"));
+    website.registerAdminModule(require("neutronjs/lib/filemanager"));
 
     app.use(website);
 
